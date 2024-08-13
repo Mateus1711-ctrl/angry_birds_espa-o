@@ -9,10 +9,12 @@ def main():
     settings = Settings()
     
     screen = pygame.display.set_mode((settings.screen_width, settings.screen_height))
-    pygame.display.set_caption("Angry Birds")
+    pygame.display.set_caption("Angry Birds Clone")
     
     menu_screen = MenuScreen(screen, settings)
     game_screen = GameScreen(screen, settings)
+    
+    clock = pygame.time.Clock()
     
     running = True
     while running:
@@ -33,6 +35,7 @@ def main():
             game_screen.draw()
         
         pygame.display.flip()
+        clock.tick(60)  # Limita o jogo a 60 FPS
     
     pygame.quit()
 
